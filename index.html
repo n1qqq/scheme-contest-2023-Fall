@@ -1,9 +1,9 @@
 <body>
 <h1> Welcome! </h1>
 <img src="https://i.imgur.com/qwq8JQE.png" width="600px" height="600px">
-<h2>My source code could be found here.</h2>
+<h2>My source code for this work could be found here...</h2>
 <li><a href='https://github.com/n1qqq/scheme-contest-2023-Fall/blob/main/contest.scm'>contest.scm</a></li>
-<h2>The following is a preview of my source code.</h2>
+<h3>Alternatively, the following is my source code (with some extra ";")...</h3>
 <p>;;; Scheme Recursive Art Contest Entry</p>
 <p>;;;</p>
 <p>;;; Please do not include your name or personal info in this file.</p>
@@ -15,120 +15,102 @@
 <p>;;;    Poppin'Party is</p>
 <p>;;;    My Favorite, Forever</p>
 <p>;;;    Daisuki Dayo!</p>
-<p> </p>
-<p> </p>
+<p>;</p>
+<p>;</p>
 <p>(define (letter-P)</p>
-<p>(forward 195)</p>
-<p>(roundy-turn right 45 0.2)</p>
-
-    
-    
-    (roundy-turn right 45 0.5)
-    (forward 60)
-    (roundy-turn right 10 1.75)
-    (roundy-turn right 20 1.5)
-    (roundy-turn right 100 1.2)
-    (roundy-turn right 20 1.5)
-    (roundy-turn right 10 1.75)
-    (roundy-turn right 5 2.25)
-    (roundy-turn right 5 3)
-    (forward 30)
-    (left 80)
-    (forward 60)
-    (roundy-turn right 60 0.2)
-    (roundy-turn right 90 .6)
-)
-
-(define (roundy-turn left/right deg step) (
-    if (> deg 0) (begin 
-        (left/right 1) 
-        (forward step) 
-        (roundy-turn left/right (- deg 1) step) 
-)))
-
-(define (star! actual-length deg-L step-L deg-R step-R index) (
-    if (< index 5) (begin
-        (forward actual-length)
-        (roundy-turn left deg-L step-L)
-        (forward actual-length)
-        (roundy-turn right deg-R step-R)
-        (star! actual-length deg-L step-L deg-R step-R (+ 1 index))
-)))
-
-
-
-;;; Some Math
-
-;;; Basic Formulas
-; arc-length = radius * theta-in-radians
-; theta-in-rad = theta-in-deg * pi / 180
-; hidden-radius = arc-length / theta-in-rad 
-;                            = (step * theta-in-deg) / (theta-in-deg * pi / 180)
-; length-cut-off = hidden-radius * tan(theta / 2)
-; actual-length = base-length - length-cut-off-L - length-cut-off-R
-
-;;; Procedure
-; choose 225 as base length, 0.75 as base step
-; re-alignment wrto the window
-;     x = 0.5 * 300 * sqrt(3); y = x * tan(0.5 * pi * 3 / 5)
-;     then move y upward at least 64.344, and move x rightward
-; deg-L = 2 * (180 * 3 / 5 - 180 / 5 - 6 - 6) / 2    ; the outer angle is the actual one
-; deg-R = 180 - (180 / 5 + 6 + 6)
-; actual-length-1 = 225-tan(pi/6)*135/pi-tan(66*pi/180)*135/pi = 103.673879
-
-; choose diff-in-radii = 6
-; step-L-2 = diff-in-radii * (pi / 180) + base-step = 0.85472
-; step-R-2 = 0.75 - 6 * (pi / 180) = 0.64528
-
-; dist1 = diff-in-radii * 3.5 = 21
-; step-R-3 = 0.75 - (21 + 6) * (pi / 180) = 0.383481
-; step-L-3 = 1.5 - (0.75 - 27 * (pi / 180)) = 1.116519
-
-; dist2 = dist1 * 2.5 = 52.5
-; calculate coordinate, got approximately
-;     x* = -21, y* = -186
-
-; finally, shrink the very first star
-
-
-
-(define (draw) 
-    (pu) 
-        (setpos -100 -200) (lt 6)
-    (pd)
-(color "#FF3377")
-    (begin_fill)
-        (star! 103.673879 60 0.75 132 0.75 0)
-    (end_fill)
-    (rt 90) (fd 6) (lt 90)
-(color "#FFFFFF")
-    (begin_fill)
-        (star! 103.673879 60 0.85472 132 0.64528 0)
-    (end_fill)
-    (rt 90) (fd 21) (lt 90)
-(color "#FF3377")
-    (begin_fill)
-        (star! 103.673879 60 1.221239 132 0.278761 0)
-    (end_fill)
-    (pu)
-        (setpos -31 -96) (lt 6)
-    (pd)
-(color "#FFFFFF")
-    (begin_fill)
-        (letter-P)
-    (end_fill)
-    (setpos 0 10) (seth -9)
-(color "#FF3377")
-    (begin_fill)
-        (star! 20.734776 60 0.13125 132 0.13125 0)
-    (end_fill)
-    (ht)
-    (exitonclick)
-)
-
+<p>    (forward 195)</p>
+<p>    (roundy-turn right 45 0.2)</p>
+<p>    (roundy-turn right 45 0.5)</p>
+<p>    (forward 60)</p>
+<p>    (roundy-turn right 10 1.75)</p>
+<p>    (roundy-turn right 20 1.5)</p>
+<p>    (roundy-turn right 100 1.2)</p>
+<p>    (roundy-turn right 20 1.5)</p>
+<p>    (roundy-turn right 10 1.75)</p>
+<p>    (roundy-turn right 5 2.25)</p>
+<p>    (roundy-turn right 5 3)</p>
+<p>    (forward 30)</p>
+<p>    (left 80)</p>
+<p>    (forward 60)</p>
+<p>    (roundy-turn right 60 0.2)</p>
+<p>    (roundy-turn right 90 .6)</p>
+<p>)</p>
+<p>;</p>
+<p>(define (roundy-turn left/right deg step) ( </p>
+<p>    if (> deg 0) (begin </p>
+<p>    (left/right 1) </p>
+<p>    (forward step) </p>
+<p>    (roundy-turn left/right (- deg 1) step) </p>
+<p>)))</p>
+<p>;</p>
+<p>(define (star! actual-length deg-L step-L deg-R step-R index) (</p>
+<p>    if (< index 5) (begin</p>
+<p>    (forward actual-length)</p>
+<p>    (roundy-turn left deg-L step-L)</p>
+<p>    (forward actual-length)</p>
+<p>    (roundy-turn right deg-R step-R)</p>
+<p>    (star! actual-length deg-L step-L deg-R step-R (+ 1 index))</p>
+<p>)))</p>
+<p>;</p>
+<p>;</p>
+<p>;</p>
+<p>;;; Some Math</p>
+<p>;</p>
+<p>;;; Basic Formulas</p>
+<p>    ; arc-length = radius * theta-in-radians</p>
+<p>    ; theta-in-rad = theta-in-deg * pi / 180</p>
+<p>    ; hidden-radius = arc-length / theta-in-rad = (step * theta-in-deg) / (theta-in-deg * pi / 180) </p>
+<p>; length-cut-off = hidden-radius * tan(theta / 2)</p>                          
+<p>; actual-length = base-length - length-cut-off-L - length-cut-off-R</p>
+<p>;</p>
+<p>;;; Procedure</p>
+<p>; choose 225 as base length, 0.75 as base step</p>
+<p>; re-alignment wrto the window</p>
+<p>;     x = 0.5 * 300 * sqrt(3); y = x * tan(0.5 * pi * 3 / 5)</p>
+<p>;     then move y upward at least 64.344, and move x rightward</p>
+<p>; deg-L = 2 * (180 * 3 / 5 - 180 / 5 - 6 - 6) / 2    ; the outer angle is the actual one</p>
+<p>; deg-R = 180 - (180 / 5 + 6 + 6)</p>
+<p>; actual-length-1 = 225-tan(pi/6)*135/pi-tan(66*pi/180)*135/pi = 103.673879</p>
+<p>;</p>
+<p>; choose diff-in-radii = 6</p>
+<p>; step-L-2 = diff-in-radii * (pi / 180) + base-step = 0.85472</p>
+<p>; step-R-2 = 0.75 - 6 * (pi / 180) = 0.64528</p>
+<p>;</p>
+<p>; dist1 = diff-in-radii * 3.5 = 21</p>
+<p>; step-R-3 = 0.75 - (21 + 6) * (pi / 180) = 0.383481</p>
+<p>; step-L-3 = 1.5 - (0.75 - 27 * (pi / 180)) = 1.116519</p>
+<p>;</p>
+<p>; dist2 = dist1 * 2.5 = 52.5</p>
+<p>; calculate coordinate, got approximately</p>
+<p>;     x* = -21, y* = -186</p>
+<p>;</p>
+<p>; finally, shrink the very first star</p>
+<p>;</p>
+<p>;</p>
+<p>;</p>
+<p>(define (draw) </p>
+<p>(pu) (setpos -100 -200) (lt 6) (pd)</p>
+<p>(color "#FF3377")</p>
+<p>(begin_fill) (star! 103.673879 60 0.75 132 0.75 0) (end_fill)</p>
+<p>    (rt 90) (fd 6) (lt 90)</p>
+<p>(color "#FFFFFF")</p>
+<p>(begin_fill) (star! 103.673879 60 0.85472 132 0.64528 0) (end_fill)</p>
+<p>    (rt 90) (fd 21) (lt 90)</p>
+<p>(color "#FF3377")</p>
+<p>(begin_fill) (star! 103.673879 60 1.221239 132 0.278761 0) (end_fill)</p>
+<p>(pu) (setpos -31 -96) (lt 6) (pd)</p>
+<p>(color "#FFFFFF")</p>
+<p>(begin_fill) (letter-P) (end_fill)</p>
+<p>    (setpos 0 10) (seth -9)</p>
+<p>(color "#FF3377")</p>
+<p>(begin_fill) (star! 20.734776 60 0.13125 132 0.13125 0) (end_fill)</p>
+<p>(ht)</p>
+<p>(exitonclick)>
+<p>)</p>
+<p>;</p>
+<p>;</p>
+<p>;</p>
+<p>; Please leave this last line alone. You may add additional procedures above</p>
+<p>; this line.</p>
+<p>(draw)</p>
 </body>
-
-; Please leave this last line alone. You may add additional procedures above
-; this line.
-(draw)
-</p>
